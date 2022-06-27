@@ -1,10 +1,7 @@
 package com.health.insurance.controller;
 
-import com.health.insurance.DAO.InsuranceContractDAO;
 import com.health.insurance.DAO.PharmacyDAO;
-import com.health.insurance.DAOImpl.InsuranceContractDAOImpl;
 import com.health.insurance.DAOImpl.PharmacyDAOImpl;
-import com.health.insurance.beans.InsuranceContract;
 import com.health.insurance.beans.Pharmacy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,11 +1,8 @@
 package com.health.insurance.controller;
 
-import com.health.insurance.DAO.HospitalDAO;
 import com.health.insurance.DAO.UserDAO;
-import com.health.insurance.DAOImpl.HospitalDAOImpl;
 import com.health.insurance.DAOImpl.UserDAOImpl;
 import com.health.insurance.Main;
-import com.health.insurance.beans.Hospital;
 import com.health.insurance.beans.User;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;

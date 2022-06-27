@@ -1,7 +1,6 @@
 package com.health.insurance.DAOImpl;
 
 import com.health.insurance.DAO.PhysicianDAO;
-import com.health.insurance.beans.Pharmacy;
 import com.health.insurance.beans.Physician;
 import com.health.insurance.util.FactoryProvider;
 import org.hibernate.Session;

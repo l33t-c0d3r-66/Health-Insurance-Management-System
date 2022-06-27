@@ -2,21 +2,15 @@ package com.health.insurance.controller;
 
 import com.health.insurance.DAO.InsuranceContractDAO;
 import com.health.insurance.DAO.InsuredPersonDAO;
-import com.health.insurance.DAO.PharmacyDAO;
 import com.health.insurance.DAOImpl.InsuranceContractDAOImpl;
 import com.health.insurance.DAOImpl.InsuredPersonDAOImpl;
-import com.health.insurance.DAOImpl.PharmacyDAOImpl;
 import com.health.insurance.beans.InsuranceContract;
 import com.health.insurance.beans.InsuredPerson;
-import com.health.insurance.beans.Pharmacy;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;

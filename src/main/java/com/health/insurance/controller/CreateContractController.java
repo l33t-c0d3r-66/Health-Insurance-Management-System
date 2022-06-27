@@ -11,7 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreateContractController implements Initializable {
