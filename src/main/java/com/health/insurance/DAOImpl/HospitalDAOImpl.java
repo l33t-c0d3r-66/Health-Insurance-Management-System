@@ -20,6 +20,7 @@ public class HospitalDAOImpl implements HospitalDAO {
         int id = (int) hibernateSession.save(hospital);
         hibernateTransaction.commit();
         hibernateSession.close();
+        System.out.println(id>0);
         return id>0;
     }
 

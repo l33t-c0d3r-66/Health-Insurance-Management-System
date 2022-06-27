@@ -11,45 +11,62 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class InsuranceContractDAOImpl implements InsuranceContractDAO {
-
-
     @Override
     public boolean saveInsuranceContract(InsuranceContract insuranceContract) {
-        SessionFactory factory = FactoryProvider.getSessionFactory();
-        Session hibernateSession = factory.openSession();
-        Transaction hibernateTransaction = hibernateSession.beginTransaction();
-        hibernateSession.save(insuranceContract);
-        hibernateTransaction.commit();
-        hibernateSession.close();
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            hibernateSession.save(insuranceContract);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+            return true;
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 
     @Override
     public void updateInsuranceContract(InsuranceContract insuranceContract) {
-        SessionFactory factory = FactoryProvider.getSessionFactory();
-        Session hibernateSession = factory.openSession();
-        Transaction hibernateTransaction = hibernateSession.beginTransaction();
-        hibernateSession.update(insuranceContract);
-        hibernateTransaction.commit();
-        hibernateSession.close();
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            hibernateSession.update(insuranceContract);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public InsuranceContract getInsuranceContract(int insuranceContractId) {
-        SessionFactory factory = FactoryProvider.getSessionFactory();
-        Session hibernateSession = factory.openSession();
-        Transaction hibernateTransaction = hibernateSession.beginTransaction();
-        InsuranceContract insuranceContract = hibernateSession.get(InsuranceContract.class,insuranceContractId);
-        hibernateTransaction.commit();
-        hibernateSession.close();
-        return insuranceContract;
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            InsuranceContract insuranceContract = hibernateSession.get(InsuranceContract.class,insuranceContractId);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+            return insuranceContract;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     @Override
     public List<InsuranceContract> getInsuranceContracts() {
-        Session session = FactoryProvider.getSessionFactory().openSession();
-        Query<InsuranceContract> query = session.createQuery("from InsuranceContract");
-        List<InsuranceContract> listOfInsuraceContracts = query.list();
-        return listOfInsuraceContracts;
+        try {
+            Session session = FactoryProvider.getSessionFactory().openSession();
+            Query<InsuranceContract> query = session.createQuery("from InsuranceContract");
+            List<InsuranceContract> listOfInsuraceContracts = query.list();
+            return listOfInsuraceContracts;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }
