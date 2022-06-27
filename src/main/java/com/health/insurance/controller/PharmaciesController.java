@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -43,13 +42,12 @@ public class PharmaciesController implements Initializable {
             String fxmlFile = "/fxml/AddPharmacy.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            stage.setMinWidth(780);
-            stage.setMinHeight(580);
-            stage.setMaxWidth(780);
-            stage.setMaxHeight(700);
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.show();
+            Main.primaryStage.setMinWidth(780);
+            Main.primaryStage.setMinHeight(580);
+            Main.primaryStage.setMaxWidth(780);
+            Main.primaryStage.setMaxHeight(700);
 
         }catch(Exception e) {
             System.out.println(e);
@@ -92,6 +90,6 @@ public class PharmaciesController implements Initializable {
         website.setCellValueFactory(new PropertyValueFactory<>("website"));
         //Adding data to the table
         ObservableList<Pharmacy> list = FXCollections.observableList(pharmacies);
-        tableView.setUserData(list);
+        tableView.setItems(list);
     }
 }

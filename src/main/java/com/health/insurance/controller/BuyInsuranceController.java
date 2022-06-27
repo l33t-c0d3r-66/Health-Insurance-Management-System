@@ -61,6 +61,7 @@ public class BuyInsuranceController implements Initializable {
     public void cancel() {
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
+        gotoDashboard();
     }
 
     @Override

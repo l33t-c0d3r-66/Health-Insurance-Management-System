@@ -42,14 +42,12 @@ public class InsuranceContractController implements Initializable {
             String fxmlFile = "/fxml/CreateContract.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            stage.setMinWidth(780);
-            stage.setMinHeight(580);
-            stage.setMaxWidth(780);
-            stage.setMaxHeight(700);
-
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.show();
+            Main.primaryStage.setMinWidth(780);
+            Main.primaryStage.setMinHeight(580);
+            Main.primaryStage.setMaxWidth(780);
+            Main.primaryStage.setMaxHeight(700);
         }catch(Exception e) {
             System.out.println(e);
         }
@@ -71,7 +69,7 @@ public class InsuranceContractController implements Initializable {
         interest.setCellValueFactory(new PropertyValueFactory<>("interest"));
         //Adding data to the table
         ObservableList<InsuranceContract> list = FXCollections.observableList(insuranceContracts);
-        tableView.setUserData(list);
+        tableView.setItems(list);
     }
 
     @FXML

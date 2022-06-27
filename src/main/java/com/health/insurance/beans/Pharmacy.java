@@ -11,8 +11,8 @@ public class Pharmacy {
     private int id;
     @Column(name="name")
     private String name;
-    @Column(name="contract")
-    private String contract;
+    @Column(name="contaact")
+    private String contact;
     @Column(name="email")
     private String email;
     @Column(name="website")
@@ -23,9 +23,9 @@ public class Pharmacy {
     public Pharmacy() {
     }
 
-    public Pharmacy(String name, String contract, String email, String website, String address) {
+    public Pharmacy(String name, String contact, String email, String website, String address) {
         this.name = name;
-        this.contract = contract;
+        this.contact = contact;
         this.email = email;
         this.website = website;
         this.address = address;
@@ -47,12 +47,12 @@ public class Pharmacy {
         this.name = name;
     }
 
-    public String getContract() {
-        return contract;
+    public String getContact() {
+        return contact;
     }
 
-    public void setContract(String contract) {
-        this.contract = contract;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public String getEmail() {
@@ -77,5 +77,17 @@ public class Pharmacy {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Pharmacy{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", contact='" + contact + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

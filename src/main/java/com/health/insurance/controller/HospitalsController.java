@@ -67,9 +67,10 @@ public class HospitalsController implements Initializable {
         contact.setCellValueFactory(new PropertyValueFactory("contact"));
         email.setCellValueFactory(new PropertyValueFactory("email"));
         website.setCellValueFactory(new PropertyValueFactory<>("website"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
         //Adding data to the table
         ObservableList<Hospital> list = FXCollections.observableList(hospitals);
-        tableView.setUserData(list);
+        tableView.setItems(list);
     }
 
     @FXML

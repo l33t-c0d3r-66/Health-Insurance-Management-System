@@ -78,4 +78,16 @@ public class Hospital {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "Hospital{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", contact='" + contact + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

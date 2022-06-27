@@ -77,4 +77,16 @@ public class InsuranceContract {
     public void setInterest(String interest) {
         this.interest = interest;
     }
+
+    @Override
+    public String toString() {
+        return "InsuranceContract{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", term='" + term + '\'' +
+                ", contractAmount='" + contractAmount + '\'' +
+                ", faceAmount='" + faceAmount + '\'' +
+                ", interest='" + interest + '\'' +
+                '}';
+    }
 }

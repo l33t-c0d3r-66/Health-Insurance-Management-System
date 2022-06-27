@@ -67,4 +67,15 @@ public class InsuredPerson {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "InsuredPerson{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", number='" + number + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

@@ -50,6 +50,7 @@ public class AddPhysicianController {
     public void cancel() {
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
+        gotoDashboard();
     }
 
     public void gotoDashboard(){

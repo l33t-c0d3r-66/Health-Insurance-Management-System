@@ -39,9 +39,8 @@ public class InsuredPersonsController implements Initializable {
         String fxmlFile = "/fxml/BuyInsurance.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
         Scene scene = new Scene(loader.load());
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        Main.primaryStage.setScene(scene);
+        Main.primaryStage.show();
     }
 
     @Override
@@ -55,7 +54,7 @@ public class InsuredPersonsController implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
         //Adding data to the table
         ObservableList<InsuredPerson> list = FXCollections.observableList(insuredPersonList);
-        tableView.setUserData(list);
+        tableView.setItems(list);
 
     }
 

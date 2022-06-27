@@ -56,6 +56,7 @@ public class CreateContractController implements Initializable {
     public void cancel() {
         Stage stage = (Stage) contractName.getScene().getWindow();
         stage.close();
+        gotoDashboard();
     }
 
     @Override
