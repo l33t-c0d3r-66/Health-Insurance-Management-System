@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxWidth="900.0" minWidth="650.0" prefHeight="580.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to left,#3494E6,#EC6EAD);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.health.insurance.controller.LoginController">
+   <children>
+      <Pane layoutX="6.0" prefHeight="580.0" prefWidth="300.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="12.0" layoutY="172.0" text="Health Insurance Management System" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Circle fill="WHITE" layoutX="294.0" layoutY="292.0" radius="39.0" stroke="#f8f8f8" strokeType="INSIDE" style="-fx-stroke: transparent; -fx-fill: lightblue;" />
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="270.0" layoutY="264.0" opacity="0.79" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/health-insurance.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <VBox alignment="CENTER" fillWidth="false" layoutX="355.0" layoutY="132.0" maxWidth="415.0" prefHeight="280.0" prefWidth="415.0" spacing="20.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <ImageView fitHeight="154.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/family.jpg" />
+               </image>
+               <effect>
+                  <InnerShadow choke="0.37" color="#01509f" height="78.82" radius="53.364999999999995" width="136.64">
+                     <input>
+                        <ColorAdjust />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </ImageView>
+            <HBox minHeight="30.0" prefHeight="30.0" prefWidth="286.0" spacing="10.0" styleClass="text-field-hbox">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="50.0" />
+               </VBox.margin>
+               <children>
+                  <FontAwesomeIcon fill="#01509f" glyphName="USER" size="1.7em">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <JFXTextField fx:id="userName" focusColor="#01509f" prefHeight="27.0" prefWidth="237.0" promptText="Enter Username" styleClass="text-field" unFocusColor="#01509f">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox minHeight="30.0" prefHeight="27.0" prefWidth="286.0" spacing="10.0" styleClass="text-field-hbox">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+               <children>
+                  <FontAwesomeIcon fill="#01509f" glyphName="LOCK" size="1.7em">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <JFXPasswordField fx:id="password" focusColor="#01509f" prefHeight="27.0" prefWidth="237.0" promptText="Enter Password" styleClass="text-field" unFocusColor="#01509f">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </JFXPasswordField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" minHeight="52.0" prefHeight="52.0" prefWidth="400.0" spacing="50.0" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="30.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#signInButtonOnAction" prefHeight="30.0" prefWidth="115.0" styleClass="btn-hbox" text="Sign In" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" onAction="#signUpButtonOnAction" prefHeight="30.0" prefWidth="115.0" styleClass="btn-hbox" text="Sign Up" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="16.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../styles/styles.css" />
+   </stylesheets>
+</AnchorPane>

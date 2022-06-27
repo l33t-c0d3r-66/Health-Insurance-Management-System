@@ -1,0 +1,50 @@
+.sidebar
+{
+    -fx-background-color: rgb(1, 80, 159);
+}
+.rightpane
+{
+    -fx-background-color: #fff;
+}
+.text-field-hbox
+{
+    -fx-background-color: transparent;
+    -fx-border-color: rgb(1,80,159);
+    -fx-border-radius: 50px;
+}
+.text-field
+{
+    -fx-background-color: transparent;
+    -fx-background-radius: 2px;
+}
+.btn
+{
+    -fx-background-color: rgb(1, 80, 159);
+    -fx-border-color: white;
+    -fx-border-radius: 50px;
+}
+.btn-hbox
+{
+    -fx-background-color: rgb(1, 80, 159);
+    -fx-background-radius: 50px;
+}
+.img-circle
+{
+    -fx-border-color: rgb(1,80,159);
+    -fx-border-radius:50px;
+}
+.dashboard-btn
+{
+    -fx-text-fill: white;
+    -fx-background: white;
+}
+.oval-shape
+{
+    -fx-background-color: transparent;
+    -fx-background-radius: 25px
+}
+.btn-card
+{
+    -fx-background-color:   linear-gradient(to right, blue,pink,orange,orange,pink,blue);
+    -fx-background-radius: 20px;
+}
