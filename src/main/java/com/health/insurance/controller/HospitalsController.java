@@ -10,10 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -36,6 +36,8 @@ public class HospitalsController implements Initializable {
     @FXML
     public TableColumn<Hospital, String> address;
 
+    private HospitalDAO hospitalDAO;
+
     @FXML
     public void addHospital() {
         try {
@@ -55,12 +57,28 @@ public class HospitalsController implements Initializable {
 
     @FXML
     public void removeHospital() {
+        Hospital hospital = tableView.getSelectionModel().getSelectedItem();
+        if(hospital != null) {
+            boolean isRemoved = hospitalDAO.removeHospital(hospital);
+            if(isRemoved) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Success!");
+                alert.setContentText("Record Deleted Successfully");
+                alert.showAndWait();
+                initialize(null, null);
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Failure!");
+                alert.setContentText("Failed to Delete Record");
+                alert.showAndWait();
+            }
 
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        HospitalDAO hospitalDAO = new HospitalDAOImpl();
+        hospitalDAO = new HospitalDAOImpl();
         List<Hospital> hospitals = hospitalDAO.getHospitals();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory("name"));

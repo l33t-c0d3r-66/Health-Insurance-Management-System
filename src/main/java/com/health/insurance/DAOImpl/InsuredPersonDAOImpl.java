@@ -70,4 +70,21 @@ public class InsuredPersonDAOImpl implements InsuredPersonDAO {
         }
         return null;
     }
+
+    @Override
+    public boolean removeInsuredPerson(InsuredPerson insuredPerson) {
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            hibernateSession.delete(insuredPerson);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+
+    }
 }

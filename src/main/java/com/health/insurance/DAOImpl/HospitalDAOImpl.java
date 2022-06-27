@@ -52,4 +52,21 @@ public class HospitalDAOImpl implements HospitalDAO {
         List<Hospital> listOfHospitals = query.list();
         return listOfHospitals;
     }
+
+    @Override
+    public boolean removeHospital(Hospital hospital) {
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            hibernateSession.delete(hospital);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+
+    }
 }

@@ -69,4 +69,21 @@ public class InsuranceContractDAOImpl implements InsuranceContractDAO {
         }
         return null;
     }
+
+    @Override
+    public boolean removeInsuranceContract(InsuranceContract insuranceContract) {
+        try {
+            SessionFactory factory = FactoryProvider.getSessionFactory();
+            Session hibernateSession = factory.openSession();
+            Transaction hibernateTransaction = hibernateSession.beginTransaction();
+            hibernateSession.delete(insuranceContract);
+            hibernateTransaction.commit();
+            hibernateSession.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+
+    }
 }

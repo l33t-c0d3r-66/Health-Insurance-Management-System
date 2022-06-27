@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,6 +36,7 @@ public class PharmaciesController implements Initializable {
     @FXML
     public TableColumn<Pharmacy, String> address;
 
+    private PharmacyDAO pharmacyDAO;
 
     @FXML
     public void addPharmacy() {
@@ -55,7 +57,23 @@ public class PharmaciesController implements Initializable {
     }
     @FXML
     public void removePharmacy() {
+        Pharmacy pharmacy = tableView.getSelectionModel().getSelectedItem();
+        if(pharmacy != null) {
+            boolean isRemoved = pharmacyDAO.removePharmacy(pharmacy);
+            if(isRemoved) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Success!");
+                alert.setContentText("Record Deleted Successfully");
+                alert.showAndWait();
+                initialize(null, null);
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Failure!");
+                alert.setContentText("Failed to Delete Record");
+                alert.showAndWait();
+            }
 
+        }
     }
 
     @FXML
@@ -80,7 +98,7 @@ public class PharmaciesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        PharmacyDAO pharmacyDAO = new PharmacyDAOImpl();
+        pharmacyDAO = new PharmacyDAOImpl();
         List<Pharmacy> pharmacies = pharmacyDAO.getPharmacies();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory("name"));

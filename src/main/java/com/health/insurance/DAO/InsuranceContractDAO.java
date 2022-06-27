@@ -9,4 +9,5 @@ public interface InsuranceContractDAO {
     void updateInsuranceContract(InsuranceContract insuranceContract);
     InsuranceContract getInsuranceContract(int insuranceContractId);
     List<InsuranceContract> getInsuranceContracts();
+    boolean removeInsuranceContract(InsuranceContract insuranceContract);
 }

@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +33,7 @@ public class InsuredPersonsController implements Initializable {
     @FXML
     public TableColumn<InsuredPerson, String> address;
 
+    private InsuredPersonDAO insuredPersonDAO;
     @FXML
     public void buyInsurance() throws IOException {
         String fxmlFile = "/fxml/BuyInsurance.fxml";
@@ -45,7 +45,7 @@ public class InsuredPersonsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        InsuredPersonDAO insuredPersonDAO = new InsuredPersonDAOImpl();
+        insuredPersonDAO = new InsuredPersonDAOImpl();
         List<InsuredPerson> insuredPersonList = insuredPersonDAO.getInsuredPersons();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory("name"));

@@ -9,4 +9,5 @@ public interface HospitalDAO {
     void updateHospital(Hospital hospital);
     Hospital getHospital(int id);
     List<Hospital> getHospitals();
+    boolean removeHospital(Hospital hospital);
 }

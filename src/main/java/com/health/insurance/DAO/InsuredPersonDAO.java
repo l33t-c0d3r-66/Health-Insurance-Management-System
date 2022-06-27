@@ -9,4 +9,5 @@ public interface InsuredPersonDAO {
     void updateInsuredPerson(InsuredPerson insuredPerson);
     InsuredPerson getInsuredPerson(int insuredPersonId);
     List<InsuredPerson> getInsuredPersons();
+    boolean removeInsuredPerson(InsuredPerson person);
 }

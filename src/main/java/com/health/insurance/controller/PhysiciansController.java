@@ -10,10 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -35,6 +35,8 @@ public class PhysiciansController implements Initializable {
     @FXML
     public TableColumn<Physician, String> address;
 
+    private PhysicianDAO physicianDAO;
+
     @FXML
     public void addPhysician() {
         try {
@@ -54,7 +56,7 @@ public class PhysiciansController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        PhysicianDAO physicianDAO = new PhysicianDAOImpl();
+        physicianDAO = new PhysicianDAOImpl();
         List<Physician> physicians = physicianDAO.getPhysicians();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory("name"));
@@ -87,6 +89,22 @@ public class PhysiciansController implements Initializable {
 
     @FXML
     public void removePhysician(){
+        Physician physician = tableView.getSelectionModel().getSelectedItem();
+        if(physician != null) {
+            boolean isRemoved = physicianDAO.removePhysician(physician);
+            if(isRemoved) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Success!");
+                alert.setContentText("Record Deleted Successfully");
+                alert.showAndWait();
+                initialize(null, null);
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Failure!");
+                alert.setContentText("Failed to Delete Record");
+                alert.showAndWait();
+            }
 
+        }
     }
 }

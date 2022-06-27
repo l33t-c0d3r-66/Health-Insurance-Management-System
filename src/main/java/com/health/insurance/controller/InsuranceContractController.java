@@ -10,10 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -36,6 +36,8 @@ public class InsuranceContractController implements Initializable {
     @FXML
     public TableColumn<InsuranceContract, String> interest;
 
+    private InsuranceContractDAO insuranceContractDAO;
+
     @FXML
     public void addContractOnAction() {
         try {
@@ -54,12 +56,28 @@ public class InsuranceContractController implements Initializable {
     }
     @FXML
     public void removeContract() {
+        InsuranceContract insuranceContract = tableView.getSelectionModel().getSelectedItem();
+        if(insuranceContract != null) {
+            boolean isRemoved = insuranceContractDAO.removeInsuranceContract(insuranceContract);
+            if(isRemoved) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Success!");
+                alert.setContentText("Record Deleted Successfully");
+                alert.showAndWait();
+                initialize(null, null);
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Failure!");
+                alert.setContentText("Failed to Delete Record");
+                alert.showAndWait();
+            }
 
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        InsuranceContractDAO insuranceContractDAO = new InsuranceContractDAOImpl();
+        insuranceContractDAO = new InsuranceContractDAOImpl();
         List<InsuranceContract> insuranceContracts = insuranceContractDAO.getInsuranceContracts();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory("name"));
