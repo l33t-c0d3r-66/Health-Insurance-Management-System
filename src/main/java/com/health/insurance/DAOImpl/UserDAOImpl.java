@@ -30,8 +30,13 @@ public class UserDAOImpl implements UserDAO {
     public User getUser(String userName, String password) {
         Session session = FactoryProvider.getSessionFactory().openSession();
         Query<User> query = session.createQuery("from User where userName='"+userName+"' and password='"+password+"'");
-        User user = query.getSingleResult();
-        return user;
+        if(query.getFetchSize() !=null && query.getFetchSize() > 0){
+            User user = query.getSingleResult();
+            return user;
+        }
+        else {
+            return null;
+        }
     }
 
 
