@@ -8,6 +8,7 @@ import com.health.insurance.DAO.UserDAO;
 import com.health.insurance.DAOImpl.UserDAOImpl;
 import com.health.insurance.Main;
 import com.health.insurance.beans.User;
+import com.health.insurance.util.FactoryProvider;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import org.hibernate.SessionFactory;
 
 public class LoginController implements Initializable {
 
@@ -22,9 +24,16 @@ public class LoginController implements Initializable {
     JFXTextField userName;
     @FXML
     JFXPasswordField password;
+
+    private SessionFactory sessionFactory;
+    private UserDAO userDAO;
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        this.sessionFactory = FactoryProvider.getSessionFactory();
+        userDAO = new UserDAOImpl(sessionFactory);
     }
 
     @FXML
@@ -32,8 +41,6 @@ public class LoginController implements Initializable {
 
         String userNameText = userName.getText();
         String passwordText = password.getText();
-
-        UserDAO userDAO = new UserDAOImpl();
         User user = userDAO.getUser(userNameText, passwordText);
         if(user!=null) {
             String fxmlFile = "/fxml/Dashboard.fxml";

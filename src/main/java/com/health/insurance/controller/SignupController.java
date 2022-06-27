@@ -4,12 +4,14 @@ import com.health.insurance.DAO.UserDAO;
 import com.health.insurance.DAOImpl.UserDAOImpl;
 import com.health.insurance.Main;
 import com.health.insurance.beans.User;
+import com.health.insurance.util.FactoryProvider;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 
@@ -22,6 +24,14 @@ public class SignupController {
     @FXML
     JFXPasswordField password1;
 
+    private SessionFactory sessionFactory;
+    private UserDAO userDAO;
+
+    public SignupController() {
+        this.sessionFactory = FactoryProvider.getSessionFactory();
+         userDAO = new UserDAOImpl(sessionFactory);
+    }
+
     public void createAccount()
     {
         String userNameText = userName.getText();
@@ -30,7 +40,6 @@ public class SignupController {
 
         if(passwordText.equals(confirmPassword)) {
             User user = new User(userNameText,passwordText);
-            UserDAO userDAO = new UserDAOImpl();
             boolean isAdded = userDAO.saveUser(user);
             if (isAdded) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

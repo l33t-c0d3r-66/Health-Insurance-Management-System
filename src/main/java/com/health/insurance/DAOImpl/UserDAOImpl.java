@@ -10,11 +10,16 @@ import org.hibernate.query.Query;
 
 
 public class UserDAOImpl implements UserDAO {
+
+    private SessionFactory sessionFactory;
+    public UserDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
     @Override
     public boolean saveUser(User user) {
         try {
-            SessionFactory factory = FactoryProvider.getSessionFactory();
-            Session hibernateSession = factory.openSession();
+            Session hibernateSession = sessionFactory.openSession();
             Transaction hibernateTransaction = hibernateSession.beginTransaction();
             hibernateSession.save(user);
             hibernateTransaction.commit();
@@ -28,13 +33,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUser(String userName, String password) {
-        Session session = FactoryProvider.getSessionFactory().openSession();
-        Query<User> query = session.createQuery("from User where userName='"+userName+"' and password='"+password+"'");
-        if(query.getFetchSize() !=null && query.getFetchSize() > 0){
+        try {
+            Session session = sessionFactory.openSession();
+            Query<User> query = session.createQuery("from User where userName='"+userName+"' and password='"+password+"'");
             User user = query.getSingleResult();
             return user;
-        }
-        else {
+        }catch(Exception e) {
             return null;
         }
     }
