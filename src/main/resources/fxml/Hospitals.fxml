@@ -12,10 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="580.0" prefWidth="580.0" style="-fx-background-color: linear-gradient(to right, orange, pink,pink,blue);" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.health.insurance.controller.HospitalsController">
+<AnchorPane prefHeight="580.0" prefWidth="580.0" style="-fx-background-color: linear-gradient(to right, orange, pink,pink,blue);" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.health.insurance.controller.HospitalsController">
    <children>
       <VBox alignment="CENTER" layoutX="8.0" layoutY="6.0" prefHeight="568.0" prefWidth="560.0" spacing="20.0" style="-fx-background-color: linear-gradient(to right, orange, pink,pink,blue);" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
+            <JFXButton onAction="#back" prefHeight="32.0" prefWidth="190.0" styleClass="btn-hbox" text="Back to Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </JFXButton>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="575.0" text="Hospital" textFill="#01509f">
                <font>
                   <Font name="Times New Roman" size="33.0" />

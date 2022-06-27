@@ -31,8 +31,7 @@ public class BuyInsuranceController implements Initializable {
     JFXComboBox<String> insurance;
 
     @FXML
-    public void buyInsurance()
-    {
+    public void buyInsurance() {
         String pName = personName.getText();
         String pAddress = address.getText();
         String cNumber = contactNumber.getText();
@@ -55,8 +54,7 @@ public class BuyInsuranceController implements Initializable {
     }
 
     @FXML
-    public void cancel()
-    {
+    public void cancel() {
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
     }
@@ -68,6 +66,5 @@ public class BuyInsuranceController implements Initializable {
         for(InsuranceContract insuranceContract: insuranceContracts) {
             insurance.getItems().add(insuranceContract.getId() + " " +insuranceContract.getName());
         }
-
     }
 }

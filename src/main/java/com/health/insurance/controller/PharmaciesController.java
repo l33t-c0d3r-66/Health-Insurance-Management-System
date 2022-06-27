@@ -2,6 +2,7 @@ package com.health.insurance.controller;
 
 import com.health.insurance.DAO.PharmacyDAO;
 import com.health.insurance.DAOImpl.PharmacyDAOImpl;
+import com.health.insurance.Main;
 import com.health.insurance.beans.Pharmacy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,10 +38,8 @@ public class PharmaciesController implements Initializable {
 
 
     @FXML
-    public void addPharmacy()
-    {
-        try
-        {
+    public void addPharmacy() {
+        try {
             String fxmlFile = "/fxml/AddPharmacy.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -57,9 +56,27 @@ public class PharmaciesController implements Initializable {
         }
     }
     @FXML
-    public void removePharmacy()
-    {
+    public void removePharmacy() {
 
+    }
+
+    @FXML
+    public void back() {
+        try {
+            String fxmlFile = "/fxml/Dashboard.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Scene scene = new Scene(loader.load());
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.hide();
+            Main.primaryStage.show();
+            Main.primaryStage.setMinWidth(780);
+            Main.primaryStage.setMinHeight(580);
+            Main.primaryStage.setMaxWidth(780);
+            Main.primaryStage.setMaxHeight(700);
+
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     }
 
 

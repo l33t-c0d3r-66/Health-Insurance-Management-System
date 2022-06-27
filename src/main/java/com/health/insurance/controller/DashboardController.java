@@ -5,14 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
-public class DashboardController
-{
+public class DashboardController {
 
     @FXML
-    public void formContractOnClick()
-    {
-        try
-        {
+    public void formContractOnClick() {
+        try {
             String fxmlFile = "/fxml/InsuranceContract.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -30,10 +27,8 @@ public class DashboardController
     }
 
     @FXML
-    public void hospitalOnClick()
-    {
-        try
-        {
+    public void hospitalOnClick() {
+        try {
             String fxmlFile = "/fxml/Hospitals.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -51,10 +46,8 @@ public class DashboardController
     }
 
     @FXML
-    public void pharmaciesOnClick()
-    {
-        try
-        {
+    public void pharmaciesOnClick() {
+        try {
             String fxmlFile = "/fxml/Pharmacies.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -72,10 +65,8 @@ public class DashboardController
     }
 
     @FXML
-    public void physicianOnClick()
-    {
-        try
-        {
+    public void physicianOnClick() {
+        try {
             String fxmlFile = "/fxml/Physicians.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -88,15 +79,13 @@ public class DashboardController
             Main.primaryStage.setMaxHeight(700);
 
         }catch(Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
     @FXML
-    public void buyInsurance()
-    {
-        try
-        {
+    public void buyInsurance() {
+        try {
             String fxmlFile = "/fxml/InsuredPersons.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -107,7 +96,6 @@ public class DashboardController
             Main.primaryStage.setMinHeight(580);
             Main.primaryStage.setMaxWidth(780);
             Main.primaryStage.setMaxHeight(700);
-
         }catch(Exception e) {
             System.out.println(e);
         }

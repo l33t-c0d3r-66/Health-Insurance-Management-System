@@ -22,8 +22,7 @@ public class AddPharmacyController {
     JFXTextField website;
 
     @FXML
-    public void addPharmacy()
-    {
+    public void addPharmacy() {
         String name = pharmacyName.getText();
         String pharmacyAddress = address.getText();
         String number = contactNumber.getText();
@@ -46,8 +45,7 @@ public class AddPharmacyController {
     }
 
     @FXML
-    public void cancel()
-    {
+    public void cancel() {
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
     }

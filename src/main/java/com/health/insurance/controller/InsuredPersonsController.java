@@ -2,6 +2,7 @@ package com.health.insurance.controller;
 
 import com.health.insurance.DAO.InsuredPersonDAO;
 import com.health.insurance.DAOImpl.InsuredPersonDAOImpl;
+import com.health.insurance.Main;
 import com.health.insurance.beans.InsuredPerson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,6 +57,25 @@ public class InsuredPersonsController implements Initializable {
         ObservableList<InsuredPerson> list = FXCollections.observableList(insuredPersonList);
         tableView.setUserData(list);
 
+    }
+
+    @FXML
+    public void back() {
+        try {
+            String fxmlFile = "/fxml/Dashboard.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Scene scene = new Scene(loader.load());
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.hide();
+            Main.primaryStage.show();
+            Main.primaryStage.setMinWidth(780);
+            Main.primaryStage.setMinHeight(580);
+            Main.primaryStage.setMaxWidth(780);
+            Main.primaryStage.setMaxHeight(700);
+
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }
 

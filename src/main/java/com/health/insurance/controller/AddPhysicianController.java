@@ -19,8 +19,7 @@ public class AddPhysicianController {
     JFXTextField email;
 
     @FXML
-    public void addPhysician()
-    {
+    public void addPhysician() {
         String name = physicianName.getText();
         String physicianAddress = address.getText();
         String number = contactNumber.getText();
@@ -44,8 +43,7 @@ public class AddPhysicianController {
     }
 
     @FXML
-    public void cancel()
-    {
+    public void cancel() {
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
     }

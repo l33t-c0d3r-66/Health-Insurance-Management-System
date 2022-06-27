@@ -26,8 +26,7 @@ public class CreateContractController implements Initializable {
     JFXTextField faceAmount;
 
     @FXML
-    public void saveContract()
-    {
+    public void saveContract() {
         String name = contractName.getText();
         String term = contractTerm.getSelectionModel().getSelectedItem();
         String interestPercent = interest.getText();
@@ -50,8 +49,7 @@ public class CreateContractController implements Initializable {
     }
 
     @FXML
-    public void cancel()
-    {
+    public void cancel() {
         Stage stage = (Stage) contractName.getScene().getWindow();
         stage.close();
     }

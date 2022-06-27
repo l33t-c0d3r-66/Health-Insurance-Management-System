@@ -2,6 +2,7 @@ package com.health.insurance.controller;
 
 import com.health.insurance.DAO.InsuranceContractDAO;
 import com.health.insurance.DAOImpl.InsuranceContractDAOImpl;
+import com.health.insurance.Main;
 import com.health.insurance.beans.InsuranceContract;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,8 +20,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class InsuranceContractController implements Initializable
-{
+public class InsuranceContractController implements Initializable {
     @FXML
     public TableView<InsuranceContract> tableView;
     @FXML
@@ -37,10 +37,8 @@ public class InsuranceContractController implements Initializable
     public TableColumn<InsuranceContract, String> interest;
 
     @FXML
-    public void addContractOnAction()
-    {
-        try
-        {
+    public void addContractOnAction() {
+        try {
             String fxmlFile = "/fxml/CreateContract.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Scene scene = new Scene(loader.load());
@@ -57,8 +55,7 @@ public class InsuranceContractController implements Initializable
         }
     }
     @FXML
-    public void removeContract()
-    {
+    public void removeContract() {
 
     }
 
@@ -75,5 +72,24 @@ public class InsuranceContractController implements Initializable
         //Adding data to the table
         ObservableList<InsuranceContract> list = FXCollections.observableList(insuranceContracts);
         tableView.setUserData(list);
+    }
+
+    @FXML
+    public void back() {
+        try {
+            String fxmlFile = "/fxml/Dashboard.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Scene scene = new Scene(loader.load());
+            Main.primaryStage.setScene(scene);
+            Main.primaryStage.hide();
+            Main.primaryStage.show();
+            Main.primaryStage.setMinWidth(780);
+            Main.primaryStage.setMinHeight(580);
+            Main.primaryStage.setMaxWidth(780);
+            Main.primaryStage.setMaxHeight(700);
+
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }
