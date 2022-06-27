@@ -32,17 +32,23 @@ public class SignupController {
          userDAO = new UserDAOImpl(sessionFactory);
     }
 
-    public void createAccount()
-    {
+    public void createAccount() {
         String userNameText = userName.getText();
         String passwordText = password.getText();
         String confirmPassword = password1.getText();
 
+        if(userNameText.isEmpty() || passwordText.isEmpty() || confirmPassword.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Empty Fields!");
+            alert.setContentText("All Fields are Required");
+            alert.showAndWait();
+            return;
+        }
         if(passwordText.equals(confirmPassword)) {
             User user = new User(userNameText,passwordText);
             boolean isAdded = userDAO.saveUser(user);
             if (isAdded) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("Success!");
                 alert.setContentText("Record Saved Successfully");
                 alert.showAndWait();

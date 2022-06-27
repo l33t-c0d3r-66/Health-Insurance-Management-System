@@ -38,28 +38,30 @@ public class LoginController implements Initializable {
 
     @FXML
     public void signInButtonOnAction() throws IOException {
-
         String userNameText = userName.getText();
         String passwordText = password.getText();
-        User user = userDAO.getUser(userNameText, passwordText);
-        if(user!=null) {
-            String fxmlFile = "/fxml/Dashboard.fxml";
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Scene scene = new Scene(loader.load());
-            scene.getStylesheets().add("/styles/styles.css");
-            Main.primaryStage.hide();
-            Main.primaryStage.setScene(scene);
-            Main.primaryStage.show();
-        }else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Login Failed");
-            alert.setContentText("Invalid Username or Password");
+        if(userNameText.isEmpty() || passwordText.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Empty Fields");
+            alert.setContentText("Both Username and Password are required");
             alert.showAndWait();
+        } else {
+            User user = userDAO.getUser(userNameText, passwordText);
+            if(user!=null) {
+                String fxmlFile = "/fxml/Dashboard.fxml";
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                Scene scene = new Scene(loader.load());
+                scene.getStylesheets().add("/styles/styles.css");
+                Main.primaryStage.hide();
+                Main.primaryStage.setScene(scene);
+                Main.primaryStage.show();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Login Failed");
+                alert.setContentText("Invalid Username or Password");
+                alert.showAndWait();
+            }
         }
-
-
-
-        
 
     }
 
