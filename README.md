@@ -1,6 +1,6 @@
 # Health-Insurance-Management-System
 <li> A Health Insurance Project created with JavaFX and Hibernate Framework.
-<li> This Project is built using IntelliJ Idea and SceneBuilder.
+<li> This Project is built using IntelliJ Idea JFeonix for Material UI and SceneBuilder.
 <li> Maven was used as built tool.
 
 ## What is JavaFX?
