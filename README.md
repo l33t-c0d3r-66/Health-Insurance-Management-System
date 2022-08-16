@@ -1,7 +1,10 @@
 # Health-Insurance-Management-System
 <li> A Health Insurance Project created with JavaFX and Hibernate Framework.
 <li> This Project is built using IntelliJ Idea JFeonix for Material UI and SceneBuilder.
+<li> CSS was used for Coloring and Some Styling.
 <li> Maven was used as built tool.
+<li> This Project can be used by Health Insurance Companies for their Insurance Management Task.
+
 
 ## What is JavaFX?
 <li> JavaFX is a software platform for creating and delivering desktop applications, as well as rich web applications that can run across a wide variety of devices.
@@ -23,6 +26,15 @@
 <li> It is an open source, lightweight, ORM (Object Relational Mapping) tool.
 <li> Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.
 <li> You can find more about hibernate on: https://hibernate.org/orm/documentation/5.6/
+
+## Contributions
+<li> Feel Free to Contribute to this Project.
+<li> Follow the Following Steps to Contribute <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Fork the Project <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Clone the repository <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Open the Project in IntelliJ Idea <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Open MySQL and Create a Database wit Name `ims` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Run the Project.
 
 ## Project Images
 
